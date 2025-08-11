@@ -1,46 +1,55 @@
 # Lime Administrator
 
-> **LIME Administrator**는 [LIME (리메)](https://github.com/DongEsssss/lime) 프로젝트의 관리자 전용 웹 애플리케이션입니다.  
-> LIME의 콘텐츠(데일리 인사이트, 브랜드 컬렉션 등)와 사용자 계정을 효율적으로 관리할 수 있는 대시보드 기능을 제공합니다.
+> **LIME Administrator**는 [LIME (리메)](https://github.com/DongEsssss/lime) 프로젝트의 **관리자 전용 웹 애플리케이션**입니다.  
+> LIME 플랫폼에 등록되는 **카테고리별 사용자 콘텐츠**(한마디, 사진, 기타 이미지)와 **유저 정보**를 통합 관리할 수 있는 대시보드를 제공합니다.  
+> 오직 **관리자 계정**만 접근 가능하며, Firebase 기반 인증을 통해 안전하게 운영됩니다.
 
 ---
 
 ## 1. 프로젝트 개요
 
-**LIME Administrator**는 LIME 웹사이트에서 사용하는 데이터를 입력·수정하고,  
-가입 유저의 정보와 접근 권한을 관리할 수 있도록 제작된 **관리자 전용 페이지**입니다.
+**LIME Administrator**는 LIME 웹사이트에서 사용자들이 업로드하는 콘텐츠와  
+유저 계정을 효율적으로 관리하기 위해 제작된 **관리자 전용 관리 도구**입니다.
 
-- **데이터 관리**: Daily Insight, Featured Items, 브랜드 철학 섹션 등 LIME 콘텐츠 CRUD  
-- **유저 관리**: 가입한 사용자 목록 조회 및 권한 변경  
-- **보안 접근**: 관리자 전용 로그인 및 인증 시스템 적용  
-- **UI/UX**: 직관적인 폼과 테이블 기반 인터페이스로 빠른 관리 가능
+- **콘텐츠 관리**: 여러 카테고리의 사용자 업로드(한마디, 사진, 이미지 등) CRUD
+- **유저 관리**: 가입한 사용자 정보와 권한 변경, 계정 상태 관리
+- **보안 접근**: 관리자 인증을 거쳐야만 접속 가능
+- **실시간 동기화**: Firebase Firestore 기반의 실시간 데이터 연동
 
 ---
 
 ## 2. 주요 기능
 
-### 데이터 관리
-- **Daily Insight 등록/수정/삭제**  
-- **컬렉션(Featured Items) 관리**  
-- 브랜드 철학, 추천 콘텐츠 등 기타 정적 데이터 업데이트
+### 콘텐츠 관리
+- 카테고리별 데이터 등록/수정/삭제
+- 사용자 한마디 텍스트와 이미지 업로드 관리
+- Featured Items, Daily Insight 등 브랜드 콘텐츠 관리
 
 ### 유저 관리
-- 가입한 사용자 목록 확인  
-- 권한(Role) 변경 (예: 일반 → 관리자)  
-- 비활성화 및 삭제 기능
+- 가입 유저 목록 및 상세 정보 조회
+- 활동 내역 및 업로드 콘텐츠 확인
+- 권한(Role) 변경 (예: 일반 → 관리자)
+- 계정 비활성화 및 삭제
 
-### 보안
-- Firebase Authentication 기반 관리자 로그인  
-- 권한 체크를 통한 페이지 접근 제한
+### 보안 및 접근 제어
+- Firebase Authentication 기반 **관리자 로그인**
+- 권한 체크로 비인가 접근 차단
 
 ---
 
 ## 3. 기술 스택
 
-- **Frontend**: React, scss, Material UI  
-- **State Management**: React Query  
-- **Backend / DB**: Firebase Firestore, Firebase Authentication  
-- **배포**: Firebase 
+### Frontend
+- **TypeScript** – 안정적인 타입 기반 개발
+- **React** – 컴포넌트 기반 UI 구성
+- **SCSS** – 구조적인 스타일 관리
+- **React Query** – 비동기 데이터 관리 및 캐싱
+
+### Backend / Infrastructure
+- **Firebase Authentication** – 관리자 인증
+- **Firebase Firestore** – 실시간 데이터베이스
+- **Firebase Storage** – 이미지 및 파일 저장
+- **Firebase Hosting** – 배포
 
 ---
 
@@ -48,9 +57,9 @@
 
 ```bash
 src/
- ├─ components/         # UI 컴포넌트 (폼, 테이블, 모달 등)
- ├─ pages/              # 주요 페이지 (로그인, 대시보드, 데이터 관리, 유저 관리)
+ ├─ components/         # UI 컴포넌트 (폼, 테이블, 모달, 업로드 위젯 등)
+ ├─ pages/              # 주요 페이지 (로그인, 대시보드, 콘텐츠 관리, 유저 관리)
  ├─ hooks/              # React Query 및 커스텀 훅
- ├─ lib/                # Firebase 초기화 및 API 함수
- ├─ styles/             # Tailwind 및 글로벌 스타일
+ ├─ lib/                # Firebase 초기화 및 API 유틸
+ ├─ styles/             # SCSS 전역 스타일 및 변수
  └─ App.tsx             # 라우팅 및 전역 설정
