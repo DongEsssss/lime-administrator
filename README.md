@@ -1,47 +1,56 @@
-# Getting Started with Create React App
+# Lime Administrator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **LIME Administrator**는 [LIME (리메)](https://github.com/DongEsssss/lime) 프로젝트의 관리자 전용 웹 애플리케이션입니다.  
+> LIME의 콘텐츠(데일리 인사이트, 브랜드 컬렉션 등)와 사용자 계정을 효율적으로 관리할 수 있는 대시보드 기능을 제공합니다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 1. 프로젝트 개요
 
-### `npm start`
+**LIME Administrator**는 LIME 웹사이트에서 사용하는 데이터를 입력·수정하고,  
+가입 유저의 정보와 접근 권한을 관리할 수 있도록 제작된 **관리자 전용 페이지**입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **데이터 관리**: Daily Insight, Featured Items, 브랜드 철학 섹션 등 LIME 콘텐츠 CRUD  
+- **유저 관리**: 가입한 사용자 목록 조회 및 권한 변경  
+- **보안 접근**: 관리자 전용 로그인 및 인증 시스템 적용  
+- **UI/UX**: 직관적인 폼과 테이블 기반 인터페이스로 빠른 관리 가능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 2. 주요 기능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 데이터 관리
+- **Daily Insight 등록/수정/삭제**  
+- **컬렉션(Featured Items) 관리**  
+- 브랜드 철학, 추천 콘텐츠 등 기타 정적 데이터 업데이트
 
-### `npm run build`
+### 유저 관리
+- 가입한 사용자 목록 확인  
+- 권한(Role) 변경 (예: 일반 → 관리자)  
+- 비활성화 및 삭제 기능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 보안
+- Firebase Authentication 기반 관리자 로그인  
+- 권한 체크를 통한 페이지 접근 제한
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 3. 기술 스택
 
-### `npm run eject`
+- **Frontend**: React, scss, Material UI  
+- **State Management**: React Query  
+- **Backend / DB**: Firebase Firestore, Firebase Authentication  
+- **배포**: Firebase 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. 폴더 구조 예시
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# lime-administrator
+```bash
+src/
+ ├─ components/         # UI 컴포넌트 (폼, 테이블, 모달 등)
+ ├─ pages/              # 주요 페이지 (로그인, 대시보드, 데이터 관리, 유저 관리)
+ ├─ hooks/              # React Query 및 커스텀 훅
+ ├─ lib/                # Firebase 초기화 및 API 함수
+ ├─ styles/             # Tailwind 및 글로벌 스타일
+ └─ App.tsx             # 라우팅 및 전역 설정
