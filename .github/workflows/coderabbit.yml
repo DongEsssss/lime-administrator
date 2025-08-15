@@ -6,7 +6,7 @@ name: CodeRabbit AI Review
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: [ main ] # 필요에 따라 'master' 또는 다른 기본 브랜치 이름으로 변경하세요.
+    branches: [ main, dev ] # 필요에 따라 'master' 또는 다른 기본 브랜치 이름으로 변경하세요.
 
 # 워크플로우 작업(Job) 정의
 jobs:
