@@ -34,7 +34,7 @@ function Logo() {
                     fontSize: '1.2rem',
                     fontWeight: 'bolder',
                     lineHeight: 1,
-                    color: 'black'aasd
+                    color: 'black'
                 }}
             >
                 Lime - Administrator
