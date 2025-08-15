@@ -3,31 +3,32 @@ name: CodeRabbit Review
 on:
   push:
     branches:
-      - main   # 메인 브런치에 push될 때 실행
-      - dev    # 개발 브런치에 push될 때 실행 
+      - main
+      - dev
   pull_request:
-    types: [opened, synchronize]   # 기존 PR 이벤트 유지
+    types: [opened, synchronize]
 
 jobs:
   coderabbit-review:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Run CodeRabbit Review
         uses: coderabbitai/coderabbit-action@v1.0.0
-
-# ===== CodeRabbit 설정 =====
-# language: "ko-KR"
-# early_access: false
-# reviews:
-#   profile: "chill"
-#   request_changes_workflow: true
-#   high_level_summary: true
-#   poem: true
-#   review_status: true
-#   collapse_walkthrough: false
-#   auto_review:
-#     enabled: true
-#     drafts: false
-# chat:
-#   auto_reply: true
+        with:
+          api_key: ${{ secrets.CODERABBIT_API_KEY }} 
+          language: "ko-KR"
+          early_access: false
+          reviews: |
+            profile: "chill"
+            request_changes_workflow: true
+            high_level_summary: true
+            poem: true
+            review_status: true
+            collapse_walkthrough: false
+            auto_review:
+              enabled: true
+              drafts: false
+          chat: |
+            auto_reply: true
