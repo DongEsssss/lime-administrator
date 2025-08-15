@@ -1,9 +1,12 @@
-import React from 'react'
+import Typography from '@mui/material/Typography'
 
-function Footer() {
+export default function Footer() {
     return (
-        <div>Footer</div>
+        <div>
+            <Typography variant="body2" color="textSecondary" align="center">
+                © 2025 Dev-Lime. All rights reserved.
+            </Typography>
+        </div>
     )
 }
 
-export default Footer
