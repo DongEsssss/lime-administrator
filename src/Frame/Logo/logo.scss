@@ -7,13 +7,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem; // space-x-2 대신
+    gap: 0.5rem;
 }
 
 .logo-icon {
     width: 40px;
     height: 40px;
-    vertical-align: middle; // 텍스트와 세로 중앙 맞춤
+    vertical-align: middle;
 }
 
 .logo-text {
