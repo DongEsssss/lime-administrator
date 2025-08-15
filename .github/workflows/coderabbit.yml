@@ -1,34 +1,41 @@
-name: CodeRabbit Review
+# 워크플로우 이름
+name: CodeRabbit AI Review
 
+# 워크플로우 실행 조건
+# main 브랜치로 향하는 Pull Request가 생성되거나 업데이트될 때 실행됩니다.
 on:
-  push:
-    branches:
-      - main
-      - dev
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
+    branches: [ main ] # 필요에 따라 'master' 또는 다른 기본 브랜치 이름으로 변경하세요.
 
+# 워크플로우 작업(Job) 정의
 jobs:
-  coderabbit-review:
+  coderabbit_review:
+    # 실행 환경
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - name: Run CodeRabbit Review
-        uses: coderabbitai/coderabbit-action@latest
+    # --------------------------------------------------------------------
+    # [수정 필요 1] 작업에 필요한 권한 설정
+    # CodeRabbit이 PR에 댓글을 달 수 있도록 pull-requests 쓰기 권한을 부여합니다.
+    # --------------------------------------------------------------------
+    permissions:
+      contents: read
+      pull-requests: write
+
+    # 작업 단계(Step) 정의
+    steps:
+      # 1. 저장소 코드 체크아웃
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # --------------------------------------------------------------------
+      # [수정 필요 2] CodeRabbit AI 액션 실행
+      # - @latest 대신 @v1 버전을 사용합니다.
+      # - CODERABBIT_API_KEY는 GitHub Secrets에 미리 저장해야 합니다.
+      # --------------------------------------------------------------------
+      - name: CodeRabbit AI Review
+        uses: coderabbitai/coderabbit-action@v1
         with:
-          api_key: ${{ secrets.CODERABBIT_API_KEY }} 
-          language: "ko-KR"
-          early_access: false
-          reviews: |
-            profile: "chill"
-            request_changes_workflow: true
-            high_level_summary: true
-            poem: true
-            review_status: true
-            collapse_walkthrough: false
-            auto_review:
-              enabled: true
-              drafts: false
-          chat: |
-            auto_reply: true
+          # 이 API 키는 GitHub 저장소의 Secrets에 등록해야 합니다.
+          # (Settings -> Secrets and variables -> Actions -> New repository secret)
+          CODERABBIT_API_KEY: ${{ secrets.CODERABBIT_API_KEY }}
