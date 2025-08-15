@@ -1,15 +1,13 @@
+import { createElement } from 'react';
+
+import { NavigationItem } from '../Type/navigation';
+
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import MessageIcon from '@mui/icons-material/Message';
 import CategoryIcon from '@mui/icons-material/Category';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { ReactNode, createElement } from 'react';
 
-type NavigationItem = {
-    segment: string;
-    title: string;
-    icon: ReactNode;
-};
 
 const navigation: NavigationItem[] = [
     {

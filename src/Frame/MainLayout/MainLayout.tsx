@@ -1,10 +1,13 @@
-import Box from '@mui/material/Box';
+
+import { Outlet } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import navigation from '../../Assets/navigation/navigate';
+
+import Box from '@mui/material/Box';
+
 import Logo from '../Logo/logo';
-import { Outlet } from 'react-router-dom';
+import navigation from '../../Assets/navigation/navigate';
 import Footer from '../Footer/Footer';
 
 const demoTheme = createTheme({
@@ -34,7 +37,7 @@ function DemoPageContent() {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                flex: 1, // 전체 영역 채움
+                flex: 1,
             }}
         >
             {/* 콘텐츠 영역 */}
