@@ -52,14 +52,3 @@
 - **Firebase Hosting** – 배포
 
 ---
-
-## 4. 폴더 구조 예시
-
-```bash
-src/
- ├─ components/         # UI 컴포넌트 (폼, 테이블, 모달, 업로드 위젯 등)
- ├─ pages/              # 주요 페이지 (로그인, 대시보드, 콘텐츠 관리, 유저 관리)
- ├─ hooks/              # React Query 및 커스텀 훅
- ├─ lib/                # Firebase 초기화 및 API 유틸
- ├─ styles/             # SCSS 전역 스타일 및 변수
- └─ App.tsx             # 라우팅 및 전역 설정
