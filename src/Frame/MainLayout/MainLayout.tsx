@@ -54,6 +54,7 @@ function DemoPageContent() {
 }
 
 
+
 // material mui dashboard
 function DashboardLayoutBranding({ window }: DemoProps) {
     const demoWindow = window?.();
@@ -64,7 +65,7 @@ function DashboardLayoutBranding({ window }: DemoProps) {
             branding={{
                 logo: <Logo />,
                 homeUrl: '/',
-                title: ''
+                title: 'Lime - Administrator'
             }}
             theme={demoTheme}
             window={demoWindow}

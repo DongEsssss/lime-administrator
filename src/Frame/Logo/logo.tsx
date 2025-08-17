@@ -27,18 +27,6 @@ function Logo() {
                 <circle cx="60" cy="55" r="6" fill="rgb(187 247 208)" opacity="0.85" />
                 <circle cx="30" cy="85" r="5" fill="rgb(134 239 172)" opacity="0.9" />
             </svg>
-
-            <span
-                className="text-slate-800 tracking-wider"
-                style={{
-                    fontSize: '1.2rem',
-                    fontWeight: 'bolder',
-                    lineHeight: 1,
-                    color: 'black',
-                }}
-            >
-                Lime - Administrator
-            </span>
         </div >
     );
 }
